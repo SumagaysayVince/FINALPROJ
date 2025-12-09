@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ISUFST BrainWave</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background-image: url("fish.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            position: relative;
+            padding-top: 80px; /* Space for header */
+            padding-bottom: 80px; /* Space for footer */
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: -1;
+        }
+
+        /* HEADER */
+        header {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.65);
+            padding: 12px 28px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+            gap: 12px;
+        }
+
+        /* Logo + title group */
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo {
+            display: inline-block;
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            overflow: hidden;
+            flex: 0 0 48px;
+            background: rgba(255,255,255,0.03);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo img {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+        }
+
+        header h2 {
+            font-weight: 700;
+            font-size: 20px;
+            letter-spacing: 1px;
+            margin: 0;
+        }
+
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #bdeaff;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+        }
+
+        /* MAIN BOX */
+        .container {
+            width: 420px;
+            max-width: 90%;
+            padding: 35px 30px;
+            background-color: rgba(0, 0, 0, 0.70);
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+
+        h1 {
+            margin-bottom: 25px;
+            color: #ffffff;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .button-wrapper {
+            margin: 18px 0 22px;
+        }
+
+        a.button {
+            display: block;
+            padding: 14px;
+            background: linear-gradient(135deg, #8fd3f4, #84fab0);
+            color: #083a5e;
+            text-decoration: none;
+            border-radius: 14px;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.4px;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 18px rgba(143, 211, 244, 0.45);
+        }
+
+        a.button:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 10px 26px rgba(143, 211, 244, 0.6);
+            background: linear-gradient(135deg, #a1e9ff, #9afac8);
+        }
+
+        a.button:active {
+            transform: scale(0.98);
+            box-shadow: 0 4px 10px rgba(143, 211, 244, 0.35);
+        }
+
+        .desc {
+            margin-top: 6px;
+            font-size: 13px;
+            color: #d6f2ff;
+            opacity: 0.95;
+        }
+
+        /* FOOTER */
+        footer {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.65);
+            color: #cfeaff;
+            text-align: center;
+            padding: 18px 0;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Responsive tweak */
+        @media (max-width: 520px) {
+            .logo { width: 40px; height: 40px; }
+            header h2 { font-size: 18px; }
+            nav a { margin-left: 12px; font-size: 14px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="overlay"></div>
+
+<!-- HEADER -->
+<header>
+    <div class="brand">
+        <span class="logo" role="img" aria-label="ISUFST logo">
+            <!-- Replace 'logo.png' with your logo filename (svg preferred for sharpness) -->
+            <img src="logo.png" alt="ISUFST BrainWave logo">
+        </span>
+        <h2>ISUFST BrainWave</h2>
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contacts</a>
+    </nav>
+</header>
+
+<!-- MAIN LOGIN BOX -->
+<div class="container">
+    <h1>Welcome</h1>
+
+    <div class="button-wrapper">
+        <a class="button" href="admin_login.php">Admin</a>
+        <div class="desc">Log in as Administrator</div>
+    </div>
+
+    <div class="button-wrapper">
+        <a class="button" href="student_login.php">Student</a>
+        <div class="desc">Log in as Student</div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    © 2025 ISUFST BrainWave | All Rights Reserved
+</footer>
+
+</body>
+</html>

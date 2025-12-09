@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Contact — ISUFST BrainWave</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            min-height:100vh;
+            background-image: url("fish.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: #eaf6ff;
+            padding-top: 78px;
+            padding-bottom: 78px;
+            line-height: 1.6;
+        }
+
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.55);
+            z-index: -1;
+        }
+
+        header {
+            width:100%;
+            background: rgba(0,0,0,0.7);
+            position: fixed;
+            top:0;
+            left:0;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:14px 28px;
+            z-index: 20;
+        }
+        header h2 { color:#fff; font-size:20px; letter-spacing:1px; }
+        nav a { margin-left:18px; color:#bdeaff; text-decoration:none; font-weight:600; }
+        nav a:hover { color:#fff; }
+
+        .page {
+            width: 1100px;
+            max-width: 95%;
+            margin: 36px auto;
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 28px;
+        }
+
+        .card {
+            background: rgba(0,0,0,0.72);
+            border-radius: 14px;
+            padding: 24px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+        }
+
+        h1 { font-size: 26px; margin-bottom: 8px; color: #fff; }
+        p { color: #e1f7ff; margin-bottom: 12px; font-size: 15px; }
+
+        form .row { display:flex; gap:12px; margin-bottom:12px; }
+        form .row .field { flex:1; display:flex; flex-direction:column; }
+        label { font-size:13px; color:#cfeaff; margin-bottom:6px; }
+        input[type="text"], input[type="email"], textarea {
+            padding:10px 12px;
+            border-radius:10px;
+            border: none;
+            background: rgba(255,255,255,0.04);
+            color: #eaf6ff;
+            font-size:14px;
+            outline: none;
+            resize: vertical;
+        }
+        textarea { min-height:120px; max-height:300px; }
+
+        .hint { font-size:12px; color:#bfefff; margin-top:6px; }
+
+        .actions {
+            display:flex;
+            gap:12px;
+            margin-top:12px;
+        }
+        .btn {
+            padding:11px 14px;
+            border-radius:12px;
+            text-decoration:none;
+            font-weight:700;
+            cursor:pointer;
+            border:none;
+        }
+        .btn.primary {
+            background: linear-gradient(135deg,#8fd3f4,#84fab0);
+            color:#083a5e;
+        }
+        .btn.ghost {
+            background: rgba(255,255,255,0.06);
+            color:#d6f2ff;
+        }
+
+        .contact-info p { color:#d7fbff; margin-bottom:8px; }
+
+        .socials { display:flex; gap:10px; margin-top:10px; }
+        .socials a {
+            padding:8px 10px;
+            border-radius:8px;
+            background: rgba(255,255,255,0.04);
+            color:#d6f2ff;
+            text-decoration:none;
+            font-weight:600;
+        }
+
+        .map {
+            width:100%;
+            height:200px;
+            border-radius:10px;
+            overflow:hidden;
+            margin-top:12px;
+            background: rgba(255,255,255,0.03);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            color:#cfeaff;
+        }
+
+        footer {
+            width:100%;
+            background: rgba(0,0,0,0.7);
+            position: fixed;
+            bottom:0;
+            left:0;
+            text-align:center;
+            padding:14px 18px;
+            color:#cfeaff;
+            z-index: 20;
+        }
+
+        @media (max-width: 900px) {
+            .page { grid-template-columns: 1fr; }
+            .sidebar { order: 2; }
+            .card { order: 1; }
+            .map { height:170px; }
+        }
+
+        /* small toast (non-blocking) */
+        .toast {
+            position: fixed;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 90px;
+            background: rgba(13, 110, 49, 0.95);
+            color: #eaffef;
+            padding: 12px 18px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            display: none;
+            z-index: 999;
+            font-weight: 600;
+        }
+        /* Logo + title group */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    display: inline-flex;
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.03);
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+}
+
+    </style>
+</head>
+<body>
+<div class="overlay"></div>
+
+<header>
+    <div class="brand">
+        <span class="logo" role="img" aria-label="ISUFST logo">
+            <img src="logo.png" alt="ISUFST BrainWave logo">
+        </span>
+        <h2>ISUFST BrainWave</h2>
+    </div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" aria-current="page">Contact</a>
+        <a href="student_login.php">Student</a>
+    </nav>
+</header>
+
+
+<main class="page">
+
+    <section class="card" aria-labelledby="contact-title">
+        <h1 id="contact-title">Get in Touch</h1>
+        <p>Have a question about BrainWave, need help, or want to suggest a feature? Fill out the form below — our tech team will respond as soon as possible.</p>
+
+        <!-- No action attribute — client-side only -->
+        <form id="contactForm" method="post" novalidate>
+            <div class="row">
+                <div class="field">
+                    <label for="name">Full name</label>
+                    <input id="name" name="name" type="text" placeholder="Juan dela Cruz" required />
+                </div>
+                <div class="field">
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" placeholder="you@isufst.edu.ph" required />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="field">
+                    <label for="subject">Subject</label>
+                    <input id="subject" name="subject" type="text" placeholder="Login issue / Feature request" required />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="field">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+                    <div class="hint">Include device/browser details if reporting a technical issue.</div>
+                </div>
+            </div>
+
+            <div class="actions">
+                <button class="btn primary" type="submit">Send Message</button>
+                <button id="clearDraft" type="button" class="btn ghost">Clear</button>
+            </div>
+
+            <p id="formStatus" class="hint" aria-live="polite" style="margin-top:10px;"></p>
+        </form>
+    </section>
+
+    <aside class="card contact-info">
+        <h3>Contact Information</h3>
+        <p><strong>Address:</strong><br>ISUFST DC Campus, Main Avenue, City</p>
+        <p><strong>Phone:</strong><br>+63 912 345 6789</p>
+        <p><strong>Email:</strong><br>support@isufstbrainwave.edu.ph</p>
+
+        <div class="socials">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+        </div>
+
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.9066587311754!2d122.70978877480565!3d10.82616038932565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33af1ff88bf466a9%3A0xca7bf4326aa1ae45!2sIloilo%20State%20University%20of%20Fisheries%20Science%20and%20Technology-%20Dumangas%20Campus!5e1!3m2!1sen!2sph!4v1765253965870!5m2!1sen!2sph"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+
+        <h3 style="margin-top:12px">Office Hours</h3>
+        <p>Mon–Fri: 8:00 AM — 5:00 PM<br>Sat: 9:00 AM — 12:00 NN</p>
+    </aside>
+</main>
+
+<footer>
+    © 2025 ISUFST BrainWave • Academic Tech Team
+</footer>
+
+<!-- small non-blocking toast -->
+<div id="toast" class="toast">Message Sent!</div>
+
+<script>
+(function(){
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('formStatus');
+    const clearBtn = document.getElementById('clearDraft');
+    const draftKey = 'isufst_contact_draft_v1';
+    const toast = document.getElementById('toast');
+
+    // Helper to get elements
+    const nameEl = document.getElementById('name');
+    const emailEl = document.getElementById('email');
+    const subjectEl = document.getElementById('subject');
+    const messageEl = document.getElementById('message');
+
+    function showToast(text = 'Message Sent!', ms = 2200) {
+        toast.textContent = text;
+        toast.style.display = 'block';
+        toast.style.opacity = '1';
+        setTimeout(() => {
+            toast.style.transition = 'opacity 300ms';
+            toast.style.opacity = '0';
+            setTimeout(() => toast.style.display = 'none', 300);
+        }, ms);
+    }
+
+    function loadDraft(){
+        try {
+            const raw = localStorage.getItem(draftKey);
+            if(!raw) return;
+            const draft = JSON.parse(raw);
+            if(draft.name) nameEl.value = draft.name;
+            if(draft.email) emailEl.value = draft.email;
+            if(draft.subject) subjectEl.value = draft.subject;
+            if(draft.message) messageEl.value = draft.message;
+            status.textContent = 'Draft loaded.';
+        } catch(e) {
+            console.warn('loadDraft error', e);
+        }
+    }
+
+    function saveDraft(){
+        const draft = {
+            name: nameEl.value,
+            email: emailEl.value,
+            subject: subjectEl.value,
+            message: messageEl.value,
+            savedAt: new Date().toISOString()
+        };
+        localStorage.setItem(draftKey, JSON.stringify(draft));
+        status.textContent = 'Draft saved.';
+    }
+
+    let timeout;
+    form.addEventListener('input', () => {
+        clearTimeout(timeout);
+        timeout = setTimeout(saveDraft, 1200);
+    });
+
+    clearBtn.addEventListener('click', () => {
+        localStorage.removeItem(draftKey);
+        form.reset();
+        status.textContent = 'Draft cleared.';
+    });
+
+    form.addEventListener('submit', function(e){
+        e.preventDefault();
+        status.textContent = '';
+
+        const nameVal = nameEl.value.trim();
+        const emailVal = emailEl.value.trim();
+        const subjectVal = subjectEl.value.trim();
+        const msgVal = messageEl.value.trim();
+
+        if(!nameVal || !emailVal || !subjectVal || !msgVal){
+            status.textContent = 'Please complete all fields.';
+            return;
+        }
+
+        if(!/^\S+@\S+\.\S+$/.test(emailVal)){
+            status.textContent = 'Invalid email address.';
+            return;
+        }
+
+        // Show non-blocking toast + alert (optional)
+        showToast('Message Sent!');
+
+        // If you still want the old blocking alert, uncomment:
+        // alert('Message Sent!');
+
+        // Clear saved draft and form
+        try { localStorage.removeItem(draftKey); } catch(e){}
+        form.reset();
+        status.textContent = '';
+
+        // NOTE: no navigation/redirect — stays on the same page
+    });
+
+    // initialize
+    loadDraft();
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>About — ISUFST BrainWave</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            min-height:100vh;
+            background-image: url("fish.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: #eaf6ff;
+            padding-top: 78px; /* header */
+            padding-bottom: 78px; /* footer */
+            line-height: 1.6;
+        }
+
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.55);
+            z-index: -1;
+        }
+
+        header {
+            width:100%;
+            background: rgba(0,0,0,0.7);
+            position: fixed;
+            top:0;
+            left:0;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:14px 28px;
+            z-index: 20;
+        }
+
+        /* Logo + title group */
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border-radius: 6px;
+            overflow: hidden;
+            flex: 0 0 40px;
+            background: rgba(255,255,255,0.03);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo img {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+        }
+
+        header h2 { 
+            color:#fff; 
+            font-size:20px; 
+            letter-spacing:1px; 
+            margin: 0;
+        }
+        nav a { margin-left:18px; color:#bdeaff; text-decoration:none; font-weight:600; }
+        nav a:hover { color:#fff; }
+
+        /* Page container */
+        .page {
+            width: 1100px;
+            max-width: 95%;
+            margin: 36px auto;
+            display: grid;
+            grid-template-columns: 1fr 360px;
+            gap: 28px;
+        }
+
+        /* Main card */
+        .card {
+            background: rgba(0,0,0,0.72);
+            border-radius: 14px;
+            padding: 28px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+        }
+
+        h1 { font-size: 28px; margin-bottom: 8px; color: #fff; }
+        h3 { color: #d6f2ff; margin-top: 18px; margin-bottom: 8px; }
+        p { color: #e1f7ff; margin-bottom: 12px; font-size: 15px; }
+
+        /* Sidebar */
+        .sidebar {
+            display:flex;
+            flex-direction:column;
+            gap:16px;
+        }
+        .side-box {
+            background: rgba(10,20,30,0.45);
+            padding:16px;
+            border-radius:10px;
+        }
+        .feature-list { list-style: none; padding-left: 0; }
+        .feature-list li { margin-bottom: 8px; color:#d7fbff; }
+
+        /* Team row */
+        .team {
+            display:flex;
+            gap:12px;
+            margin-top:14px;
+        }
+        .person {
+            background: rgba(255,255,255,0.04);
+            padding:10px;
+            border-radius:10px;
+            flex:1;
+            text-align:center;
+        }
+        .person h4 { margin-bottom:6px; color:#fff; font-size:14px; }
+        .person p { font-size:13px; color:#d2f2ff; }
+
+        /* CTA */
+        .cta {
+            margin-top:18px;
+            display:flex;
+            gap:12px;
+        }
+        a.button {
+            padding:12px 16px;
+            background: linear-gradient(135deg,#8fd3f4,#84fab0);
+            color:#083a5e;
+            text-decoration:none;
+            border-radius:12px;
+            font-weight:700;
+            display:inline-block;
+        }
+
+        footer {
+            width:100%;
+            background: rgba(0,0,0,0.7);
+            position: fixed;
+            bottom:0;
+            left:0;
+            text-align:center;
+            padding:14px 18px;
+            color:#cfeaff;
+            z-index: 20;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .page { grid-template-columns: 1fr; }
+            .sidebar { order: 2; }
+            .card { order: 1; }
+        }
+    </style>
+</head>
+<body>
+<div class="overlay"></div>
+
+<header>
+    <div class="brand">
+        <span class="logo" role="img" aria-label="ISUFST logo">
+            <img src="logo.png" alt="ISUFST BrainWave logo">
+        </span>
+        <h2>ISUFST BrainWave</h2>
+    </div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html" aria-current="page">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="student_login.php">Student</a>
+    </nav>
+</header>
+
+<main class="page">
+    <!-- MAIN CONTENT -->
+    <section class="card" aria-labelledby="about-title">
+        <h1 id="about-title">About ISUFST BrainWave</h1>
+
+        <p><strong>BrainWave – Track and Grow Your Knowledge (Quality Education)</strong> is an
+        intelligently designed quiz platform built exclusively for ISUFST DC students. It’s more than a simple quiz tool — BrainWave is a small learning ecosystem that helps students measure knowledge, identify gaps, and grow through targeted practice and clear feedback.</p>
+
+        <h3>Our Mission</h3>
+        <p>We are committed to helping every ISUFST DC student reach their full academic potential by providing lightweight, accessible tools that turn assessment into actionable learning. BrainWave focuses on improving understanding through diagnostic feedback, personalized practice paths, and continuous progress tracking.</p>
+
+        <h3>What BrainWave Does</h3>
+        <p>BrainWave offers branching quizzes with advanced scoring logic that adapts to how students answer. Questions can branch into different follow-ups depending on responses, enabling formative assessments that feel personal and relevant. Every attempt yields a clear diagnostic report that highlights strengths, weaknesses, and recommended next steps.</p>
+
+        <h3>Key Features</h3>
+        <ul class="feature-list">
+            <li><strong>Branching Quizzes:</strong> follow-up questions adjust to learner responses for better diagnostics.</li>
+            <li><strong>Advanced Scoring:</strong> weighted scoring, partial credit, and skill-level estimation.</li>
+            <li><strong>Detailed Reports:</strong> per-topic analytics, recent trends, and suggested practice items.</li>
+            <li><strong>Progress Tracking:</strong> visual dashboards stored locally (localStorage) for instant charts and quick history.</li>
+            <li><strong>Secure Server Storage:</strong> final results, user profiles, and question banks are stored in MariaDB on XAMPP for safe, central data management.</li>
+            <li><strong>Personalized Learning Paths:</strong> follow-up quizzes and recommended lessons help students focus where they need it most.</li>
+        </ul>
+
+        <h3>How It Works</h3>
+        <p>Students sign in with their ISUFST credentials and take subject quizzes. The quiz engine uses branching rules to present the most useful follow-ups and records intermediate progress in <code>localStorage</code> so students can resume quickly or view instant charts. Completed attempts are then pushed to the server (MariaDB via XAMPP) so teachers and administrators can review class-level analytics and provide targeted help.</p>
+
+        <h3>Technology & Privacy</h3>
+        <p>The platform uses front-end technologies (HTML, CSS, JavaScript) for a fast and responsive student experience. Client-side progress and short-term state are stored in <code>localStorage</code> for convenience and offline resilience. Sensitive information and historical results are securely stored in a MariaDB database running on XAMPP. We follow a basic privacy-first approach: only necessary student data is stored, access is restricted to authorized staff, and data transmissions are handled by your local/institutional network setup.</p>
+
+        <h3>Why This Helps Students</h3>
+        <p>BrainWave transforms practice into personalized learning. Instead of generic tests, students receive targeted feedback and practice that's tailored to their current understanding. Frequent, short quizzes drive retention; diagnostic reports guide study time more effectively than blind revision.</p>
+
+        <div class="team" aria-label="core team">
+            <div class="person">
+                <h4>Vision</h4>
+                <p>To make assessment formative and actionable — a tool for growth, not just measurement.</p>
+            </div>
+            <div class="person">
+                <h4>Students First</h4>
+                <p>Designed to be easy-to-use, respectful of time, and useful for both independent study and classroom use.</p>
+            </div>
+            <div class="person">
+                <h4>Secure & Simple</h4>
+                <p>Minimal, transparent data handling with local and server-side storage balance.</p>
+            </div>
+        </div>
+
+        <div class="cta">
+            <a class="button" href="student_login.php">Try a Sample Quiz</a>
+            <a class="button" href="contact.html">Contact Support</a>
+        </div>
+    </section>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="side-box card">
+            <h3>Fast Facts</h3>
+            <p><strong>Audience:</strong> ISUFST DC students</p>
+            <p><strong>Primary goal:</strong> Improve knowledge through diagnostics & practice</p>
+            <p><strong>Storage:</strong> localStorage + MariaDB (XAMPP)</p>
+        </div>
+
+        <div class="side-box card">
+            <h3>Teacher Tools</h3>
+            <p>Instructors can review aggregated class reports, export results, and create branching question flows to probe specific misconceptions.</p>
+        </div>
+
+        <div class="side-box card">
+            <h3>Contact & Feedback</h3>
+            <p>Have ideas or corrections? Use the contact page or email the academic tech team to request new features or report issues.</p>
+        </div>
+    </aside>
+</main>
+
+<footer>
+    © 2025 ISUFST BrainWave • Built for ISUFST DC students • Data stored on MariaDB (XAMPP)
+</footer>
+
+</body>
+</html>
